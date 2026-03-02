@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Doctor</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #1e3a8a, #0f766e, #2563eb, #0ea5a4);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+</style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-900 via-indigo-800 to-teal-700 min-h-screen text-white"></body>
+<div class="fixed top-0 left-0 w-72 h-72 bg-teal-400 rounded-full blur-3xl opacity-30"></div>
+<div class="fixed bottom-0 right-0 w-72 h-72 bg-blue-500 rounded-full blur-3xl opacity-30"></div>
+<nav class="flex justify-between items-center px-10 py-5 bg-white/10 backdrop-blur-md shadow-lg">
+  
+  <div class="flex items-center space-x-3">
+    <div class="bg-teal-400 text-blue-900 font-bold p-2 rounded-lg shadow-md">
+      SD
+    </div>
+    <h1 class="text-2xl font-bold tracking-wide">
+      Smart Doctor
+    </h1>
+  </div>
+
+  <div class="space-x-6 hidden md:block text-white">
+    <a href="#" class="hover:text-teal-300 transition">Home</a>
+    <a href="#" class="hover:text-teal-300 transition">Doctors</a>
+    <a href="#" class="hover:text-teal-300 transition">Dashboard</a>
+    <a href="#" class="hover:text-teal-300 transition">Admin</a>
+  </div>
+
+  <button class="bg-teal-400 text-blue-900 px-4 py-2 rounded-lg font-semibold hover:scale-105 transition shadow-md">
+    Login
+  </button>
+
+</nav>
+
+<section class="text-center py-24 px-6">
+  <h2 class="text-5xl font-extrabold mb-6 leading-tight">
+    Smart Healthcare <br>
+    <span class="text-teal-300">Without The Waiting</span>
+  </h2>
+
+  <p class="text-lg mb-10 max-w-2xl mx-auto text-blue-100">
+    Book doctor appointments instantly, manage consultations digitally,
+    and experience seamless healthcare scheduling.
+  </p>
+
+  <div class="space-x-6">
+    <button class="bg-teal-400 text-blue-900 px-8 py-3 rounded-xl font-bold shadow-lg hover:scale-110 transition">
+      Book Appointment
+    </button>
+
+    <button class="border border-white px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-blue-900 transition">
+      View Doctors
+    </button>
+  </div>
+</section>
+
+<section class="mt-24 px-6">
+  <h3 class="text-3xl font-bold text-center mb-12">Available Doctors</h3>
+
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <!-- Doctor Card 1 -->
+    <div class="bg-white/10 backdrop-blur-md text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-300">
+      <h4 class="text-xl font-semibold">Dr. Sharma</h4>
+      <p class="text-sm text-gray-600 mb-3">Cardiologist</p>
+      <span class="text-green-600 text-sm font-semibold">Available Today</span>
+      <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg w-full">
+        Book Slot
+      </button>
+    </div>
+
+    <!-- Doctor Card 2 -->
+    <div class="bg-white/10 backdrop-blur-md text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-300">
+      <h4 class="text-xl font-semibold">Dr. Mehta</h4>
+      <p class="text-sm text-gray-600 mb-3">Dermatologist</p>
+      <span class="text-green-600 text-sm font-semibold">Available Today</span>
+      <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg w-full">
+        Book Slot
+      </button>
+    </div>
+
+    <!-- Doctor Card 3 -->
+    <div class="bg-white/10 backdrop-blur-md text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-300">
+      <h4 class="text-xl font-semibold">Dr. Khan</h4>
+      <p class="text-sm text-gray-600 mb-3">Neurologist</p>
+      <span class="text-red-500 text-sm font-semibold">Fully Booked</span>
+      <button class="mt-4 bg-gray-400 text-white px-4 py-2 rounded-lg w-full cursor-not-allowed">
+        Slot Full
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<section class="mt-24 px-6 text-center">
+  <h3 class="text-3xl font-bold mb-10">Book Appointment</h3>
+
+  <div class="bg-white text-black rounded-2xl p-10 max-w-xl mx-auto shadow-xl">
+
+    <select id="doctor-select" class="w-full mb-4 p-3 border rounded-lg">
+      <option>Select Doctor</option>
+      <option>Dr. Sharma</option>
+      <option>Dr. Mehta</option>
+    </select>
+
+    <input id="appointment-date" type="date" class="w-full mb-4 p-3 border rounded-lg">
+
+    <div class="grid grid-cols-3 gap-3 mb-4">
+      <button class="time-slot bg-blue-500 text-white py-2 rounded-lg">10:00</button>
+      <button class="bg-blue-500 text-white py-2 rounded-lg">11:00</button>
+      <button class="bg-gray-400 text-white py-2 rounded-lg cursor-not-allowed">12:00</button>
+    </div>
+
+    <button id="confirm-booking" class="bg-green-500 px-6 py-3 rounded-lg w-full">
+    Confirm Booking
+    </button>
+    <p id="error-message" class="text-red-500 mt-4 hidden">
+    ⚠ Please select doctor and date!
+    </p>
+    <p id="success-message" class="text-green-600 mt-4 hidden">
+     ✅ Booking Successful!
+    </p>
+
+  </div>
+</section>
+
+<section class="mt-24 px-6">
+  <h3 class="text-3xl font-bold text-center mb-10">My Appointments</h3>
+
+  <div class="bg-white text-black rounded-2xl p-6 max-w-4xl mx-auto shadow-lg">
+
+    <table class="w-full text-left">
+      <thead>
+        <tr class="border-b">
+          <th class="py-2">Doctor</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr class="border-b">
+          <td class="py-2">Dr. Sharma</td>
+          <td>12 Oct</td>
+          <td>10:00 AM</td>
+          <td class="text-green-600 font-semibold">Confirmed</td>
+          <td>
+            <button class="text-red-500 hover:underline">Cancel</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="py-2">Dr. Mehta</td>
+          <td>15 Oct</td>
+          <td>11:00 AM</td>
+          <td class="text-yellow-600 font-semibold">Pending</td>
+          <td>
+            <button class="text-red-500 hover:underline">Cancel</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
+
+<section class="mt-24 px-6 text-center mb-20">
+  <h3 class="text-3xl font-bold mb-10">Admin Panel</h3>
+
+  <div class="bg-black/40 backdrop-blur-lg rounded-2xl p-10 max-w-2xl mx-auto">
+
+    <h4 class="text-xl font-semibold mb-4">Add Doctor</h4>
+
+    <input class="w-full mb-4 p-3 rounded-lg text-black" placeholder="Doctor Name">
+    <input class="w-full mb-4 p-3 rounded-lg text-black" placeholder="Specialization">
+
+    <button class="bg-blue-600 px-6 py-3 rounded-lg w-full mb-6 hover:scale-105 transition">
+      Add Doctor
+    </button>
+
+    <h4 class="text-xl font-semibold mb-4">Manage Doctors</h4>
+
+    <button class="bg-red-500 px-6 py-3 rounded-lg w-full hover:scale-105 transition">
+      Delete Selected Doctor
+    </button>
+
+  </div>
+</section>
+<footer class="mt-32 bg-black/50 backdrop-blur-lg py-16 px-10 text-white">
+
+  <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto text-left">
+
+    <div>
+      <h3 class="text-2xl font-bold mb-4">Smart Doctor</h3>
+      <p class="text-blue-200 text-sm">
+        A modern healthcare appointment system built to eliminate long
+        hospital queues and digitize medical scheduling.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-blue-200 text-sm">
+        <li><a href="#" class="hover:text-teal-300">Home</a></li>
+        <li><a href="#" class="hover:text-teal-300">Doctors</a></li>
+        <li><a href="#" class="hover:text-teal-300">Book Appointment</a></li>
+        <li><a href="#" class="hover:text-teal-300">Admin Panel</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-4">Contact</h4>
+      <p class="text-blue-200 text-sm">support@smartdoctor.com</p>
+      <p class="text-blue-200 text-sm">+91 98765 43210</p>
+      <p class="text-blue-200 text-sm">Bhopal, India</p>
+    </div>
+
+  </div>
+
+  <div class="text-center text-blue-300 text-sm mt-12">
+    © 2026 Smart Doctor | Designed & Developed by Sandhya
+  </div>
+
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
